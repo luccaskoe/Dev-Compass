@@ -1,0 +1,254 @@
+/* JORNADA / QUIZ */
+.container-journey {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 140px 6% 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* FUNDO DA JORNADA */
+.container-journey::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    left: -250px;
+    top: 20%;
+    background: rgba(49, 1, 154, 0.08);
+    filter: blur(140px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container-journey::after {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    right: -200px;
+    bottom: 5%;
+    background: rgba(95, 168, 168, 0.07);
+    filter: blur(130px);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* CABEÇALHO */
+.journey-content {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.journey-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.journey-eyebrow-line {
+    width: 45px;
+    height: 1px;
+    flex-shrink: 0;
+    background: var(--color-accent);
+}
+
+.journey-content h1 {
+    margin-bottom: 18px;
+    color: var(--txt-primary);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+    font-weight: 800;
+}
+
+.journey-content p {
+    max-width: 600px;
+    color: var(--txt-segundary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* GRID DAS OPÇÕES */
+.grid-journey {
+    width: 100%;
+    max-width: 950px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+/* CARD DA JORNADA */
+.card-journey {
+    position: relative;
+    min-height: 120px;
+    padding: 24px;
+    border: 1px solid rgba(142, 154, 168, 0.14);
+    border-radius: 16px;
+    background:
+        linear-gradient(145deg,
+            rgba(17, 24, 33, 0.9),
+            rgba(11, 15, 20, 0.75));
+    backdrop-filter: blur(14px);
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.card-journey::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--color-primary);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.35s ease;
+}
+
+.card-journey:hover {
+    transform: translateY(-4px);
+    border-color: rgba(95, 168, 168, 0.4);
+    background:
+        linear-gradient(145deg,
+            rgba(21, 30, 41, 0.95),
+            rgba(11, 15, 20, 0.9));
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25),
+        0 0 25px rgba(95, 168, 168, 0.05);
+}
+
+.card-journey:hover::before {
+    transform: scaleY(1);
+}
+
+.card-journey button {
+    width: 100%;
+    height: 100%;
+    min-height: 72px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--txt-primary);
+    text-align: left;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.card-journey button:hover {
+    color: var(--txt-primary);
+}
+
+.card-journey i{
+    color: var(--color-primary);
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* CONTADOR */
+.contact-journey {
+    width: 100%;
+    max-width: 950px;
+    margin-top: 38px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.counting-line {
+    position: relative;
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: rgba(142, 154, 168, 0.15);
+    overflow: hidden;
+}
+
+.contact-journey #counter {
+    flex-shrink: 0;
+    color: var(--color-accent);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.counting-line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--progress, 0%);
+    height: 100%;
+    background: var(--color-accent);
+    box-shadow:
+        0 0 10px rgba(201, 168, 106, 0.5);
+    transition: width 0.5s ease;
+}
+
+/* LOBBY */
+.lobby {
+    width: 100%;
+    max-width: 950px;
+    margin-top: 28px;
+}
+
+.lobby button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0;
+    border: 0;
+    background: transparent;
+    color: var(--txt-segundary);
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.lobby button:hover {
+    color: var(--color-primary);
+    transform: translateX(-4px);
+}
+
+.lobby button i {
+    font-size: 1rem;
+}
+
+/* TRANSIÇÃO ENTRE PERGUNTAS */
+#journey-options,
+#question {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.question-changing {
+  opacity: 0 !important;
+  transform: translateY(8px);
+}

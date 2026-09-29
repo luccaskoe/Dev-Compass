@@ -1,0 +1,328 @@
+/* HOME / TABLET */
+@media (max-width: 900px) {
+  .container-hero {
+    grid-template-columns: 1fr;
+    padding-top: 140px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    justify-content: center;
+  }
+
+  .hero-content h2,
+  .hero-content > p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-actions {
+    justify-content: center;
+  }
+
+  .hero-compass {
+    min-height: 380px;
+  }
+
+  .hero-compass svg {
+    width: min(80%, 420px);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  header {
+    padding: 24px 20px;
+  }
+
+  .container-hero {
+    min-height: 100svh;
+    padding: 120px 20px 60px;
+    gap: 0;
+  }
+
+  .hero-eyebrow {
+    gap: 9px;
+    margin-bottom: 22px;
+  }
+
+  .hero-eyebrow-line {
+    width: 35px;
+  }
+
+  .hero-eyebrow p {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(3.4rem, 17vw, 5rem);
+    margin-bottom: 28px;
+  }
+
+  .hero-content h2 {
+    font-size: 1.3rem;
+  }
+
+  .hero-content > p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .home-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .home-actions button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .hero-compass {
+    min-height: 300px;
+    margin-top: 20px;
+  }
+
+  .hero-compass svg {
+    width: 300px;
+  }
+}
+
+/* ANIMAÇÕES DO JOURNEY */
+@media (max-width: 800px) {
+  .journey {
+    padding: 120px 5% 70px;
+  }
+
+  .grid-journey {
+    gap: 12px;
+  }
+
+  .card-journey {
+    min-height: 110px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .journey {
+    padding: 110px 20px 60px;
+  }
+
+  .journey-header {
+    margin-bottom: 35px;
+  }
+
+  .journey-header h1 {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+
+  .journey-header p {
+    font-size: 0.85rem;
+  }
+
+  .grid-journey {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card-journey {
+    min-height: 90px;
+    padding: 18px;
+  }
+
+  .card-journey button {
+    min-height: 55px;
+    font-size: 0.85rem;
+  }
+
+  .contati-journey {
+    margin-top: 28px;
+  }
+}
+
+/* RESULTADO */
+@media (max-width: 600px) {
+  .container-result {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* RESPONSIVIDADE — CHALLENGE */
+
+/* TABLET */
+@media (max-width: 1000px) {
+  #challenge-lobby,
+  #challenge-game,
+  #challenge-success,
+  #challenge-gameover,
+  #challenge-final {
+    padding: 2.5rem 4%;
+  }
+
+  /* LOBBY */
+  #challenge-lobby .challenge-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* GAME */
+  .challenge-game-content {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-stage,
+  .challenge-panel {
+    min-height: 360px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 700px) {
+  #challenge-lobby,
+  #challenge-game,
+  #challenge-success,
+  #challenge-gameover,
+  #challenge-final {
+    min-height: 100dvh;
+    padding: 2rem 1rem;
+  }
+
+  /* LOBBY */
+  #challenge-lobby {
+    gap: 1.8rem;
+  }
+
+  #challenge-lobby .challenge-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  #challenge-lobby .challenge-card {
+    min-height: 170px;
+  }
+
+  /* GAME */
+  .challenge-game-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #challenge-title {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+
+  #challenge-description {
+    font-size: 0.88rem;
+  }
+
+  .challenge-stage {
+    min-height: 300px;
+    padding: 1rem;
+  }
+
+  .challenge-panel {
+    min-height: auto;
+    padding: 1.3rem;
+    border-radius: 16px;
+  }
+
+  #challenge-options button {
+    padding: 0.9rem;
+    font-size: 0.82rem;
+  }
+
+  /* GAME OVER */
+  .gameover-content {
+    padding: 2rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .gameover-actions {
+    flex-direction: column;
+  }
+
+  .gameover-actions button {
+    width: 100%;
+  }
+
+  /* RESULTADO FINAL */
+  .final-content {
+    padding: 2rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .final-trophy {
+    width: 62px;
+    height: 62px;
+    font-size: 1.5rem;
+  }
+
+  .final-total-score {
+    width: 100%;
+  }
+
+  .final-actions {
+    flex-direction: column;
+  }
+
+  .final-actions button {
+    width: 100%;
+  }
+
+  /* FUNDO */
+  #challenge-lobby::before,
+  #challenge-game::before,
+  #challenge-success::before,
+  #challenge-gameover::before,
+  #challenge-final::before {
+    width: 260px;
+    height: 260px;
+    filter: blur(60px);
+  }
+}
+
+/* MOBILE PEQUENO */
+@media (max-width: 420px) {
+  #challenge-lobby,
+  #challenge-game,
+  #challenge-success,
+  #challenge-gameover,
+  #challenge-final {
+    padding: 1.5rem 0.8rem;
+  }
+
+  /* LOBBY */
+  #challenge-lobby .challenge-card {
+    padding: 1.2rem;
+  }
+
+  /* GAME */
+  .challenge-stage {
+    min-height: 250px;
+  }
+
+  /* GAME OVER / FINAL */
+  .gameover-content,
+  .final-content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* MINE GAME */
+
+@media (prefers-reduced-motion: reduce) {
+  #challenge-object *,
+  #challenge-object-area .challenge-feedback {
+    transition-duration: 0.01s !important;
+    animation-duration: 0.01s !important;
+  }
+}

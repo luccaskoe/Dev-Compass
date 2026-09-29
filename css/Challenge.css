@@ -1,0 +1,1096 @@
+/* DESAFIOS ESTRUTURA GERAL */
+#challenge-lobby,
+#challenge-game,
+#challenge-gameover,
+#challenge-final {
+  width: 100%;
+  min-height: 100vh;
+  padding: 3rem 5%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ATMOSFERA DE FUNDO */
+#challenge-lobby::before,
+#challenge-game::before,
+#challenge-gameover::before,
+#challenge-final::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  top: 5%;
+  right: -180px;
+  border-radius: 50%;
+  background: rgba(95, 168, 168, 0.07);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+#challenge-lobby::after,
+#challenge-game::after,
+#challenge-gameover::after,
+#challenge-final::after {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  left: -120px;
+  bottom: -150px;
+  border-radius: 50%;
+  background: rgba(49, 1, 154, 0.07);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ELEMENTOS DAS TELAS ACIMA DO FUNDO */
+#challenge-lobby > *,
+#challenge-game > *,
+#challenge-gameover > *,
+#challenge-final > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* LOBBY */
+#challenge-lobby {
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+#challenge-lobby.screen.active {
+  display: flex;
+}
+
+/* Cabeçalho */
+#challenge-lobby .challenge-header {
+  width: 100%;
+  max-width: 900px;
+}
+
+#challenge-lobby .challenge-eyebrow {
+  display: block;
+  margin-bottom: 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5fa8a8;
+}
+
+.challenge-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #e8edf2;
+}
+
+.challenge-header p {
+  max-width: 650px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #8e9aa8;
+}
+
+/* GRID DOS CARDS */
+#challenge-lobby .challenge-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+/* CARDS */
+#challenge-lobby .challenge-card {
+  position: relative;
+  min-height: 200px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(142, 154, 168, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(21, 30, 41, 0.95),
+    rgba(11, 15, 20, 0.96)
+  );
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.challenge-card span,
+.challenge-card strong,
+.challenge-card small {
+  color: #e8edf2;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+#challenge-lobby .challenge-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 100% 0%,
+    rgba(95, 168, 168, 0.1),
+    transparent 45%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+#challenge-lobby .challenge-card::after {
+  content: "";
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 0;
+  height: 1px;
+  background: rgba(95, 168, 168, 0.35);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* Hover */
+#challenge-lobby .challenge-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(95, 168, 168, 0.4);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(95, 168, 168, 0.05);
+}
+
+#challenge-lobby .challenge-card:hover::before {
+  opacity: 1;
+}
+
+#challenge-lobby .challenge-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* ÍCONE DOS CARDS */
+#challenge-lobby .challenge-card-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(95, 168, 168, 0.2);
+  border-radius: 11px;
+  background: rgba(95, 168, 168, 0.07);
+  color: #5fa8a8;
+  font-size: 1.25rem;
+}
+
+/* TEXTO DOS CARDS */
+#challenge-lobby .challenge-card h3 {
+  margin: 1.2rem 0 0.45rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #e8edf2;
+}
+
+#challenge-lobby .challenge-card p {
+  margin: 0;
+  max-width: 300px;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: #8e9aa8;
+}
+
+/* RODAPÉ DOS CARDS */
+#challenge-lobby .challenge-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #66717f;
+}
+
+#challenge-lobby .challenge-card-footer i {
+  color: #5fa8a8;
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+#challenge-lobby .challenge-card:hover .challenge-card-footer i {
+  color: #e8edf2;
+  transform: translateX(4px);
+}
+
+/* PLACAR DO LOBBY */
+.challenge-score {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.8rem 1.2rem;
+  margin: 7px;
+  border: 1px solid rgba(95, 168, 168, 0.18);
+  border-radius: 12px;
+  background: rgba(17, 24, 33, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.challenge-score strong {
+  color: #ffdc41;
+}
+
+.challenge-score-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8e9aa8;
+}
+
+.challenge-score-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #c9a86a;
+}
+
+/*TELA DO DESAFIO */
+#challenge-game.screen.active {
+  display: flex;
+  flex-direction: column;
+}
+
+#challenge-game {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* CABEÇALHO DO DESAFIO */
+.challenge-game-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.challenge-game-info {
+  max-width: 750px;
+}
+
+.challenge-eyebrow {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5fa8a8;
+}
+
+.challenge-game-number {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #66717f;
+}
+
+#challenge-title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #e8edf2;
+}
+
+#challenge-description {
+  max-width: 700px;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #8e9aa8;
+}
+
+/* CONTEÚDO DO GAME */
+.challenge-game-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* ÁREA VISUAL */
+.challenge-stage {
+  position: relative;
+  width: 100%;
+  min-height: 470px;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  border: 1px solid rgba(142, 154, 168, 0.12);
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(95, 168, 168, 0.06),
+      transparent 55%
+    ),
+    rgba(17, 24, 33, 0.72);
+  overflow: hidden;
+}
+
+.challenge-stage::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px dashed rgba(142, 154, 168, 0.08);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+/* OBJETO */
+.challenge-object {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(95, 168, 168, 0.3);
+  border-radius: 16px;
+  background: rgba(95, 168, 168, 0.08);
+  color: #e8edf2;
+  font-size: 1.8rem;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* PAINEL DE RESPOSTA */
+.challenge-panel {
+  width: 100%;
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px solid rgba(142, 154, 168, 0.12);
+  border-radius: 20px;
+  background: rgba(17, 24, 33, 0.88);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.challenge-panel-label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5fa8a8;
+}
+
+.challenge-panel h3 {
+  margin: 0 0 0.8rem;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  color: #e8edf2;
+}
+
+.challenge-panel p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #8e9aa8;
+}
+
+/* OPÇÕES */
+#challenge-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+#challenge-options button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.8rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(142, 154, 168, 0.14);
+  border-radius: 11px;
+  background: rgba(11, 15, 20, 0.7);
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 0.86rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+#challenge-options button:hover {
+  transform: translateX(4px);
+  border-color: rgba(95, 168, 168, 0.4);
+  background: rgba(95, 168, 168, 0.07);
+  color: #e8edf2;
+}
+
+#challenge-options button:focus-visible {
+  outline: 2px solid #5fa8a8;
+  outline-offset: 3px;
+}
+
+/* TENTATIVAS */
+.challenge-attempts {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.challenge-attempts-label {
+  margin-right: 0.4rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8e9aa8;
+}
+
+.challenge-attempt {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5fa8a8;
+  box-shadow: 0 0 8px rgba(95, 168, 168, 0.25);
+}
+
+.challenge-attempt.used {
+  opacity: 0.2;
+  transform: scale(0.8);
+}
+
+/* BOTÃO VOLTAR */
+#game-back-to-lobby,
+.challenge-secondary-btn {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(142, 154, 168, 0.15);
+  border-radius: 10px;
+  background: rgba(17, 24, 33, 0.6);
+  color: #8e9aa8;
+  font-family: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+#game-back-to-lobby {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+}
+
+#game-back-to-lobby:hover {
+  color: #e8edf2;
+  border-color: rgba(95, 168, 168, 0.4);
+  background: rgba(95, 168, 168, 0.07);
+}
+
+/* GAME OVER */
+#challenge-gameover {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#challenge-gameover.screen.active {
+  display: flex;
+}
+
+/* Container */
+.gameover-content {
+  width: min(700px, 100%);
+  padding: 3.5rem 3rem;
+  text-align: center;
+  border: 1px solid rgba(184, 121, 121, 0.18);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(21, 30, 41, 0.96),
+    rgba(11, 15, 20, 0.97)
+  );
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+/* Eyebrow */
+.gameover-content > span {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b87979;
+}
+
+/* Título */
+.gameover-content h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: #e8edf2;
+}
+
+/* Texto */
+.gameover-content p {
+  max-width: 540px;
+  margin: 1rem auto 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #8e9aa8;
+}
+
+/* Botões */
+.gameover-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.gameover-actions button {
+  min-width: 180px;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(142, 154, 168, 0.16);
+  border-radius: 10px;
+  background: rgba(17, 24, 33, 0.8);
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.gameover-actions button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(95, 168, 168, 0.4);
+  background: rgba(95, 168, 168, 0.08);
+  color: #e8edf2;
+}
+
+.gameover-question {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e8edf2;
+}
+
+.gameover-actions button {
+  position: relative;
+}
+
+#retry-challenge::before {
+  content: "▶";
+  margin-right: 0.45rem;
+  font-size: 0.65rem;
+  color: #b87979;
+}
+
+#gameover-lobby::before {
+  content: "■";
+  margin-right: 0.45rem;
+  font-size: 0.5rem;
+  color: #66717f;
+}
+
+/* TELA DE VITÓRIA */
+#challenge-success {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#challenge-success.screen.active {
+  display: flex;
+}
+
+.success-content {
+  position: relative;
+  width: min(650px, 100%);
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 106, 0.25);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(201, 168, 106, 0.08),
+      transparent 55%
+    ),
+    linear-gradient(145deg, rgba(21, 30, 41, 0.98), rgba(11, 15, 20, 0.99));
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.35),
+    0 0 60px rgba(201, 168, 106, 0.05);
+  animation: successAppear 0.5s ease both;
+}
+
+/* ESTRELAS */
+.success-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.success-stars span {
+  position: absolute;
+  color: #c9a86a;
+  font-size: 1.4rem;
+  opacity: 0;
+  animation: starAppear 0.6s ease forwards;
+}
+
+.success-stars span:nth-child(1) {
+  top: 18%;
+  left: 18%;
+  animation-delay: 0.1s;
+}
+
+.success-stars span:nth-child(2) {
+  top: 12%;
+  right: 22%;
+  animation-delay: 0.2s;
+}
+
+.success-stars span:nth-child(3) {
+  top: 32%;
+  right: 10%;
+  animation-delay: 0.35s;
+}
+
+.success-stars span:nth-child(4) {
+  bottom: 22%;
+  left: 14%;
+  animation-delay: 0.45s;
+}
+
+.success-stars span:nth-child(5) {
+  bottom: 18%;
+  right: 16%;
+  animation-delay: 0.55s;
+}
+
+/* TEXTO */
+.success-eyebrow {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9a86a;
+}
+
+.success-content h1 {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  color: #e8edf2;
+  animation: victoryTitle 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* TAÇA */
+.success-trophy {
+  position: relative;
+  z-index: 2;
+  width: 110px;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  margin: 2rem 0 1.5rem;
+  border: 1px solid rgba(201, 168, 106, 0.35);
+  border-radius: 24px;
+  background: rgba(201, 168, 106, 0.08);
+  color: #c9a86a;
+  font-size: 3rem;
+  box-shadow:
+    0 0 35px rgba(201, 168, 106, 0.08),
+    inset 0 0 25px rgba(201, 168, 106, 0.04);
+  animation:
+    trophyAppear 0.7s 0.2s cubic-bezier(0.16, 1, 0.3, 1) both,
+    trophyFloat 2.5s 1s ease-in-out infinite;
+}
+
+/* +1 */
+.success-reward {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.8rem;
+}
+
+.success-reward strong {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #c9a86a;
+  text-shadow: 0 0 20px rgba(201, 168, 106, 0.2);
+}
+
+/* PRÓXIMO */
+.success-next {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-width: 170px;
+  padding: 0.9rem 1.3rem;
+  border: 1px solid rgba(95, 168, 168, 0.3);
+  border-radius: 11px;
+  background: rgba(95, 168, 168, 0.08);
+  color: #e8edf2;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.success-next:hover {
+  transform: translateY(-3px);
+  border-color: rgba(95, 168, 168, 0.5);
+  background: rgba(95, 168, 168, 0.14);
+}
+
+.success-next i {
+  transition: transform 0.25s ease;
+}
+
+.success-next:hover i {
+  transform: translateX(4px);
+}
+
+/* Primeiro botão */
+#retry-challenge {
+  border-color: rgba(95, 168, 168, 0.35);
+  background: rgba(95, 168, 168, 0.1);
+}
+
+/* RESULTADO FINAL */
+#challenge-final {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#challenge-final.screen.active {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Container */
+.final-content {
+  width: min(900px, 100%);
+  margin: auto;
+  padding: 3rem;
+  text-align: center;
+  border: 1px solid rgba(201, 168, 106, 0.18);
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    rgba(21, 30, 41, 0.96),
+    rgba(11, 15, 20, 0.97)
+  );
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+/* Eyebrow */
+.final-content > span {
+  display: block;
+  margin-bottom: 1.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9a86a;
+}
+
+/* TROFÉU */
+.final-trophy {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 1.5rem;
+  border: 1px solid rgba(201, 168, 106, 0.3);
+  border-radius: 20px;
+  background: rgba(201, 168, 106, 0.07);
+  color: #c9a86a;
+  font-size: 1.8rem;
+  box-shadow: 0 0 30px rgba(201, 168, 106, 0.05);
+}
+
+/* TÍTULO FINAL */
+.final-content h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #e8edf2;
+}
+
+.final-content > p {
+  max-width: 600px;
+  margin: 1rem auto 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #8e9aa8;
+}
+
+/* PONTUAÇÃO TOTAL */
+.final-total-score {
+  width: fit-content;
+  min-width: 180px;
+  margin: 2rem auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border: 1px solid rgba(201, 168, 106, 0.18);
+  border-radius: 14px;
+  background: rgba(201, 168, 106, 0.05);
+}
+
+.final-total-score span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8e9aa8;
+}
+
+.final-total-score strong {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #c9a86a;
+}
+
+/* RANKING FINAL */
+.final-ranking {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 2rem;
+}
+
+.final-ranking > * {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(142, 154, 168, 0.1);
+  border-radius: 10px;
+  background: rgba(17, 24, 33, 0.65);
+}
+
+/* AÇÕES FINAIS */
+.final-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.final-actions button {
+  min-width: 180px;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid rgba(142, 154, 168, 0.16);
+  border-radius: 10px;
+  background: rgba(17, 24, 33, 0.8);
+  color: #c9d1d9;
+  font-family: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.final-actions button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(95, 168, 168, 0.4);
+  background: rgba(95, 168, 168, 0.08);
+  color: #e8edf2;
+}
+
+/* SOMENTE A TELA ATIVA APARECE */
+#challenge-lobby.screen.active,
+#challenge-game.screen.active,
+#challenge-success.screen.active,
+#challenge-gameover.screen.active,
+#challenge-final.screen.active {
+  display: flex;
+}
+
+/* GAME OVER */
+#challenge-gameover {
+  align-items: center;
+  justify-content: center;
+}
+
+/* VITÓRIA */
+#challenge-success {
+  align-items: center;
+  justify-content: center;
+}
+
+/* RESULTADO FINAL */
+#challenge-final {
+  align-items: center;
+  justify-content: center;
+}
+
+/* AMBIENTE DOS DESAFIOS */
+#challenge-lobby,
+#challenge-game,
+#challenge-success,
+#challenge-gameover,
+#challenge-final {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  z-index: 9999;
+  background: var(--color-fundo, #0b0f14);
+}
+
+/* TELAS ESCONDIDAS */
+#challenge-lobby,
+#challenge-game,
+#challenge-success,
+#challenge-gameover,
+#challenge-final {
+  display: none;
+}
+
+/* SOMENTE A TELA ATIVA APARECE */
+#challenge-lobby.screen.active,
+#challenge-game.screen.active,
+#challenge-success.screen.active,
+#challenge-gameover.screen.active,
+#challenge-final.screen.active {
+  display: flex;
+  overflow-y: auto;
+}
+
+/* LOBBY */
+#challenge-lobby.screen.active {
+  flex-direction: column;
+}
+
+/* JOGO */
+#challenge-game.screen.active {
+  flex-direction: column;
+}
+
+/* VITÓRIA */
+#challenge-success.screen.active {
+  align-items: center;
+  justify-content: center;
+  
+}
+
+/* GAME OVER */
+#challenge-gameover.screen.active {
+  align-items: center;
+  justify-content: center;
+}
+
+/* RESULTADO FINAL */
+#challenge-final.screen.active {
+  align-items: center;
+  justify-content: center;
+}
+
+/* BLOQUEIA O SCROLL DA PÁGINA */
+body:has(
+  #challenge-lobby.screen.active,
+  #challenge-game.screen.active,
+  #challenge-success.screen.active,
+  #challenge-gameover.screen.active,
+  #challenge-final.screen.active
+) {
+  overflow: hidden;
+}
+
+/* ÁREA DO JOGO */
+#challenge-game {
+  padding: 2rem 5%;
+}
+
+/* CABEÇALHO DO JOGO */
+#challenge-game .challenge-game-header {
+  flex-shrink: 0;
+}
+
+/* CONTEÚDO DO JOGO */
+#challenge-game .challenge-game-content {
+  flex: none;
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* ÁREA DO MINI-GAME E PAINEL */
+#challenge-game .challenge-stage,
+#challenge-game .challenge-panel {
+  min-height: 470px;
+}

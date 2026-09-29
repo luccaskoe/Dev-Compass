@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Compass | Iniciantes em tecnologias</title>
+
+    <!-- FONT GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- REMIX ICON  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="./css/Variables.css">
+    <link rel="stylesheet" href="./css/Global.css">
+    <link rel="stylesheet" href="./css/Home.css">
+    <link rel="stylesheet" href="./css/Journey.css">
+    <link rel="stylesheet" href="./css/Result.css">
+    <link rel="stylesheet" href="./css/Challenge.css">
+    <link rel="stylesheet" href="./css/Game.css">
+    <link rel="stylesheet" href="./css/Responsive.css">
+    <link rel="stylesheet" href="./css/Animation.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-compass">
+            <span> ● </span>
+            <p>DEV COMPASS</p>
+        </div>
+    </header>
+
+    <section class="reveal reveal-delay-1 container-hero" id="home">
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <span class="hero-eyebrow-line"></span>
+                <p>
+                    PONTO DE PARTIDA // 00.00
+                </p>
+            </div>
+            <h1>
+                DEV <br> COMPASS
+            </h1>
+            <h2>
+                Você sabe para onde está indo?
+            </h2>
+            <p>
+                Muitas linguagens, infinitas possibilidades e uma sensação de estar perdido? Calma. O universo da
+                programação é gigante, e o mais difícil não é aprender a programar, é entender por onde começar. Não
+                viemos te rotular, viemos te ajudar a encontrar a sua bússola.
+            </p>
+            <p>
+                Não procure o caminho certo. Encontre o <span> seu </span> caminho na tecnologia.
+            </p>
+
+            <div class="home-actions">
+
+                <button type="button" id="start-quiz">
+                    Descobrir meu caminho
+                </button>
+                <button type="button" id="start-challenges-home">
+                    Fazer desafio
+                    <i class="ri-arrow-right-line seta-hover"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="reveal hero-compass">
+            <!-- CONSTRUÇÃO DA BUSULA EM SVG -->
+            <svg fill="none" height="400" viewbox="0 0 400 400" width="400" xmlns="http://www.w3.org/2000/svg">
+
+                <!-- CAMADA INTERNA DA BÚSSOLA -->
+                <g class="compass-orbit">
+                    <!-- Círculo interno -->
+                    <circle cx="200" cy="200" r="120" opacity="0.2" stroke="var(--color-primary)" stroke-width="0.5" />
+
+                    <circle cx="200" cy="200" r="80" opacity="0.2" stroke="var(--color-accent)" stroke-width="0.5" />
+
+                    <!-- Linhas diagonais -->
+                    <line x1="200" y1="200" x2="313" y2="87" stroke="var(--color-primary)" stroke-width="0.5"
+                        opacity="0.3" />
+
+                    <line x1="200" y1="200" x2="87" y2="313" stroke="var(--color-primary)" stroke-width="0.5"
+                        opacity="0.3" />
+
+                    <!-- Pontos -->
+                    <circle cx="313" cy="87" r="2" fill="var(--color-primary)" opacity="0.6" />
+
+                    <circle cx="87" cy="313" r="2" fill="var(--color-primary)" opacity="0.6" />
+                </g>
+
+                <!-- Outer Ring -->
+                <circle cx="200" cy="200" opacity="0.3" r="180" stroke="#8E9AA8" stroke-dasharray="2 4"
+                    stroke-width="0.5">
+                </circle>
+                <circle cx="200" cy="200" opacity="0.5" r="160" stroke="var( --color-primary)" stroke-width="1">
+                </circle>
+
+                <!-- Degree Markings -->
+                <g opacity="0.4">
+                    <path d="M200 40V50" stroke="#E8EDF2" stroke-width="2"></path>
+                    <path d="M200 350V360" stroke="#E8EDF2" stroke-width="2"></path>
+                    <path d="M40 200H50" stroke="#E8EDF2" stroke-width="2"></path>
+                    <path d="M350 200H360" stroke="#E8EDF2" stroke-width="2"></path>
+                </g>
+
+                <!-- Concentric Circles -->
+                <circle cx="200" cy="200" opacity="0.2" r="120" stroke="var( --color-primary)" stroke-width="0.5">
+                </circle>
+                <circle cx="200" cy="200" opacity="0.2" r="80" stroke="var(--color-accent)" stroke-width="0.5"></circle>
+
+                <!-- Center Hub -->
+                <g class="compass-center">
+                    <circle cx="200" cy="200" fill="#111821" r="10" stroke="var(--color-accent)" stroke-width="2">
+                    </circle>
+                    <circle cx="200" cy="200" fill="var(--color-accent)" r="4"></circle>
+
+                    <circle cx="200" cy="200" r="10" fill="#111821" stroke="var(--color-accent)" stroke-width="2" />
+
+                    <circle cx="200" cy="200" r="4" fill="var(--color-accent)" />
+                </g>
+
+                <!-- PONTEIRO DA BÚSSOLA -->
+                <g class="compass-needle">
+                    <!-- Norte -->
+                    <path d="M200 125 L214 200 L200 185 L186 200 Z" fill="var(--color-accent)" opacity="0.95" />
+
+                    <!-- Sul -->
+                    <path d="M200 275 L214 200 L200 215 L186 200 Z" fill="#8E9AA8" opacity="0.7" />
+                </g>
+
+                <!-- Subtle Points -->
+                <circle cx="313" cy="87" fill="var(--color-primary)" opacity="0.6" r="2"></circle>
+                <circle cx="87" cy="313" fill="var(--color-primary)" opacity="0.6" r="2"></circle>
+            </svg>
+        </div>
+    </section>
+
+    <section class="screen reveal reveal-delay-2 container-journey"
+    id="journey-start">
+        <div class="journey-content">
+            <div class="journey-eyebrow">
+                <span class="journey-eyebrow-line"></span>
+
+                <p>
+                    AUTODESCOBERTA
+                </p>
+            </div>
+            <h2>
+                Antes de escolher um caminho, vamos descobrir um pouco sobre você.
+            </h2>
+            <h1 id="question">
+                O que mais desperta sua curiosidade?
+            </h1>
+        </div>
+
+        <div class="grid-journey" id="journey-options">
+
+            <div class="card-journey" data-option="0">
+                <button type="button">
+                    Criar interfaces e experiências
+                </button>
+            </div>
+
+            <div class="card-journey" data-option="1">
+                <button type="button">
+                    Resolver problemas e construir sistemas
+                </button>
+            </div>
+
+            <div class="card-journey" data-option="2">
+                <button type="button">
+                    Planejar a estrutura de um sistema antes de construí-lo
+                </button>
+            </div>
+
+            <div class="card-journey" data-option="3">
+                <button type="button">
+                    Investigar e proteger sistemas
+                </button>
+            </div>
+
+            <div class="card-journey" data-option="4">
+                <button type="button">
+                    Criar soluções usando inteligência artificial e machine learning
+                </button>
+            </div>
+
+            <div class="card-journey" data-option="5">
+                <button type="button">
+                    Ainda não sei, me ajude a descobrir
+                </button>
+            </div>
+        </div>
+
+        <div class="lobby">
+            <button type="button" onclick="window.location.href='index.html'">
+                <i class="ri-arrow-left-line"></i> Voltar para o lobby
+            </button>
+        </div>
+
+        <div class="contact-journey">
+            <span class="counting-line"></span>
+            <span id="counter">
+                00 / 08
+            </span>
+        </div>
+    </section>
+
+    <section class="reveal reveal-delay-3 container-result" id="result-screen">
+
+        <!-- PARTE SUPERIOR -->
+        <div class="result-top">
+
+            <!-- MAPA DE AFINIDADES -->
+            <div class="result-ranking-section">
+                <div class="ranking-heading">
+                    <span>MAPA DE AFINIDADES</span>
+                    <p>
+                        Veja como suas respostas se distribuíram.
+                    </p>
+                </div>
+                <div class="result-ranking" id="result-ranking"></div>
+            </div>
+
+            <!-- BÚSSOLA -->
+            <div class="result-visual">
+                <div class="result-compass">
+                    <div class="compass-glow"></div>
+
+                    <!-- ANÉIS -->
+                    <div class="compass-ring compass-ring-one"></div>
+                    <div class="compass-ring compass-ring-two"></div>
+                    <div class="compass-ring compass-ring-three"></div>
+
+                    <!-- PONTOS / MARCADORES -->
+                    <div class="compass-direction compass-north">
+                        <span>FRONT-END</span>
+                    </div>
+                    <div class="compass-direction compass-east">
+                        <span>BACK-END</span>
+                    </div>
+                    <div class="compass-direction compass-south">
+                        <span>IA</span>
+                    </div>
+                    <div class="compass-direction compass-west">
+                        <span>SEGURANÇA</span>
+                    </div>
+                    <div class="compass-direction compass-engineering">
+                        <span>ENGENHARIA</span>
+                    </div>
+                    <div class="compass-direction compass-discovery">
+                        <span>EXPLORAÇÃO</span>
+                    </div>
+
+                    <!-- EIXOS DA BÚSSOLA -->
+                    <div class="compass-pointer pointer-frontend" data-area="frontend">
+                        <span></span>
+                    </div>
+                    <div class="compass-pointer pointer-backend" data-area="backend">
+                        <span></span>
+                    </div>
+                    <div class="compass-pointer pointer-ia" data-area="ia">
+                        <span></span>
+                    </div>
+                    <div class="compass-pointer pointer-seguranca" data-area="seguranca">
+                        <span></span>
+                    </div>
+                    <div class="compass-pointer pointer-engenharia" data-area="engenharia">
+                        <span></span>
+                    </div>
+                    <div class="compass-pointer pointer-descoberta" data-area="descoberta">
+                        <span></span>
+                    </div>
+
+                    <!-- CENTRO -->
+                    <div class="compass-center" id="compass-center">
+                        <strong id="main-percentage">0%</strong>
+                        <small id="main-area">ANALISANDO</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANÁLISE -->
+        <div class="reveal reveal-delay-1  result-main">
+            <div class="result-main-content">
+                <div class="result-eyebrow">
+                    <span></span>
+                    <p>
+                        ANÁLISE CONCLUÍDA
+                    </p>
+                </div>
+                <h1>
+                    Seu perfil começou a revelar um caminho.
+                </h1>
+                <p class="result-intro">
+                    Suas respostas mostram onde sua curiosidade e seus
+                    interesses parecem se encontrar. Explore o resultado
+                    e descubra até onde esse caminho pode levar você.
+                </p>
+            </div>
+
+            <div class="result-profile">
+                <span id="result-area">
+                    SEU RESULTADO
+                </span>
+                <h2 id="result-title">
+                    Você pensa além do código.
+                </h2>
+                <p id="result-message">
+                    Sua mensagem aparecerá aqui.
+                </p>
+                <p id="result-challenge">
+                    Seu desafio aparecerá aqui.
+                </p>
+            </div>
+
+            <button type="button" id="start-challenges" class="result-challenge-button">
+                <span>Quero fazer um desafio</span>
+                <i class="ri-arrow-right-line"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- LOBBY DOS DESAFIOS -->
+    <section class="screen challenge-lobby" id="challenge-lobby">
+
+        <div class="challenge-header">
+            <span class="challenge-eyebrow">DESAFIO</span>
+
+            <h1>
+                Agora é hora de colocar seu raciocínio à prova.
+            </h1>
+            <p>
+                Escolha uma área e descubra como você se sai na prática.
+            </p>
+        </div>
+
+        <div class="challenge-score">
+
+            <span>SEU PLACAR</span>
+            <strong id="challenge-total-score">
+                0
+            </strong>
+        </div>
+
+        <div class="challenge-grid">
+            <button class="challenge-card" data-challenge="frontend">
+                <span>01</span>
+                <strong>Front-End</strong>
+                <small>Interfaces e experiências</small>
+            </button>
+
+            <button class="challenge-card" data-challenge="backend">
+                <span>02</span>
+                <strong>Back-End</strong>
+                <small>Lógica e sistemas</small>
+            </button>
+
+            <button class="challenge-card" data-challenge="engenharia">
+                <span>03</span>
+                <strong>Engenharia</strong>
+                <small>Estrutura e soluções</small>
+            </button>
+
+            <button class="challenge-card" data-challenge="ia">
+                <span>04</span>
+                <strong>Inteligência Artificial</strong>
+                <small>Padrões e automação</small>
+            </button>
+
+            <button class="challenge-card" data-challenge="seguranca">
+                <span>05</span>
+                <strong>Segurança</strong>
+                <small>Investigação e proteção</small>
+            </button>
+
+            <button class="challenge-card" data-challenge="fullstack">
+                <span>06</span>
+                <strong>Full-Stack</strong>
+                <small>Um pouco de tudo</small>
+            </button>
+        </div>
+
+        <button type="button" id="back-to-result" class="challenge-secondary-btn">
+            <i class="ri-arrow-left-line"></i>
+            <span>
+                Voltar para o lobby
+            </span>
+        </button>
+    </section>
+
+    <!-- TELA DE DESAFIO -->
+    <section id="challenge-game" class="screen">
+
+        <!-- CABEÇALHO DO DESAFIO -->
+        <div class="challenge-game-header">
+            <div class="challenge-game-info">
+                <span class="challenge-eyebrow">
+                    DESAFIO PRÁTICO
+                </span>
+                <span class="challenge-game-number" id="challenge-game-number">
+                    FRONT-END · DESAFIO 01
+                </span>
+                <h2 id="challenge-title">
+                    Seu desafio começa agora.
+                </h2>
+                <p id="challenge-description">
+                    Resolva o problema abaixo.
+                </p>
+            </div>
+        </div>
+
+        <!-- CONTEÚDO PRINCIPAL DO MINI-GAME -->
+        <div class="challenge-game-content">
+
+            <!-- ÁREA VISUAL DO MINI-GAME -->
+            <div id="challenge-object-area" class="challenge-stage">
+                <div id="challenge-object" class="challenge-object">
+
+                    <i class="ri-code-s-slash-line"></i>
+                </div>
+            </div>
+
+            <!-- PAINEL DE RESPOSTA -->
+            <div class="challenge-panel">
+                <span class="challenge-panel-label">
+                    DESAFIO
+                </span>
+                <h3>
+                    Sua resposta
+                </h3>
+                <p>
+                    Analise o problema e escolha a alternativa
+                    que você considera correta.
+                </p>
+
+                <!-- O JavaScript coloca as opções aqui. -->
+
+                <div id="challenge-options">
+                    <!-- opções geradas pelo JavaScript -->
+                </div>
+
+
+                <!-- TENTATIVAS -->
+                <div class="challenge-attempts">
+
+                    <span class="challenge-attempts-label">
+                        Tentativas
+                    </span>
+
+                    <span class="challenge-attempt"></span>
+                    <span class="challenge-attempt"></span>
+                    <span class="challenge-attempt"></span>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- BOTÃO VOLTAR -->
+        <button type="button" id="game-back-to-lobby" class="challenge-secondary-btn">
+            <i class="ri-arrow-left-line"></i>
+            <span>
+                Voltar ao lobby
+            </span>
+        </button>
+
+    </section>
+
+    <!-- TELA DE VITÓRIA -->
+    <section class="screen challenge-success" id="challenge-success">
+
+        <div class="success-content">
+
+            <div class="success-stars">
+                <span>✦</span>
+                <span>✦</span>
+                <span>✦</span>
+                <span>✦</span>
+                <span>✦</span>
+            </div>
+
+            <span class="success-eyebrow">
+                DESAFIO CONCLUÍDO
+            </span>
+
+            <h1>VITÓRIA!</h1>
+
+            <div class="success-trophy">
+                <i class="ri-trophy-line"></i>
+            </div>
+
+            <div class="success-reward">
+                <strong id="success-score">+1</strong>
+            </div>
+
+            <button type="button" id="next-challenge" class="success-next">
+                <span>VER RESULTADO</span>
+                <i class="ri-arrow-right-line"></i>
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- TELA DE GAME OVER -->
+    <section class="screen challenge-gameover" id="challenge-gameover">
+
+        <div class="gameover-content">
+
+            <span>FIM DE JOGO</span>
+
+            <h1>GAME OVER</h1>
+            <p>
+                Você utilizou todas as suas tentativas.
+            </p>
+
+            <div class="gameover-question">
+                DESEJA CONTINUAR?
+            </div>
+
+            <div class="gameover-actions">
+                <button type="button" id="retry-challenge">
+                    SIM
+                </button>
+                <button type="button" id="gameover-lobby">
+                    NÃO
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RESULTADO FINAL DOS DESAFIOS -->
+    <section class="screen challenge-final" id="challenge-final">
+
+        <div class="final-content">
+            <span>SESSÃO CONCLUÍDA</span>
+
+            <div class="final-trophy">
+                <i class="ri-trophy-fill"></i>
+            </div>
+            <h1>
+                Desafios concluídos.
+            </h1>
+
+            <p id="final-message">
+                Seu desempenho foi analisado.
+            </p>
+
+            <div class="final-total-score">
+
+                <span>
+                    PONTOS ACUMULADOS
+                </span>
+
+                <strong id="final-total-score">
+                    0
+                </strong>
+
+            </div>
+
+            <div class="final-ranking" id="final-ranking">
+                <!-- JavaScript cria as áreas -->
+            </div>
+
+            <div class="final-actions">
+
+                <button id="final-new-challenge">
+                    Fazer outro desafio
+                </button>
+
+                <button id="final-lobby">
+                    Voltar ao lobby
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<!-- SCRIPTS -->
+<script src="js/journey.js"></script>
+<script src="js/result.js"></script>
+<script src="js/challenge.js"></script>
+<script src="js/game.js"></script>
+<script src="js/scroll.js"></script>
+
+</html>
